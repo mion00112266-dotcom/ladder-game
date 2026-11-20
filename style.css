@@ -1,0 +1,42 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #eef5ff; color: #20304c; font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; }
+.app { width: min(960px, 96%); margin: 32px auto; }
+h1 { text-align: center; color: #2555b6; margin-bottom: 8px; }
+.intro, .note { text-align: center; color: #536681; }
+.panel { background: white; border-radius: 18px; padding: 22px; margin: 20px 0; box-shadow: 0 8px 24px #244b8514; }
+h2 { font-size: 1.1rem; margin: 6px 0 14px; }
+.hint { color: #6b7c92; font-size: .8rem; font-weight: normal; }
+.inputs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-bottom: 20px; }
+.inputs label { font-size: .8rem; color: #536681; }
+.inputs input { display: block; width: 100%; margin-top: 6px; padding: 10px 6px; text-align: center; border: 1px solid #c7d5ea; border-radius: 8px; font: inherit; }
+.inputs input:focus { outline: 2px solid #74a5ff; }
+.actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+button { cursor: pointer; font: inherit; border: 0; border-radius: 10px; background: #356de0; color: white; padding: 12px 18px; font-weight: bold; }
+button:hover:not(:disabled) { filter: brightness(.94); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+button.secondary { background: #e3ebf8; color: #254575; }
+.game h2 { text-align: center; }
+.players, .prizes { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; text-align: center; }
+.players button { padding: 10px 2px; overflow-wrap: anywhere; font-size: .9rem; }
+.players button.active { background: #e56a2b; }
+.prizes span { padding: 10px 2px; background: #e9f5ec; border-radius: 8px; overflow-wrap: anywhere; font-weight: bold; font-size: .9rem; }
+.prizes span.active { background: #b8e7c4; outline: 2px solid #2d9d58; }
+canvas { width: 100%; height: 340px; display: block; margin: 5px auto; }
+#result { min-height: 54px; text-align: center; font-size: 1.1rem; font-weight: bold; padding: 14px; background: #f0f5fd; border-radius: 10px; }
+.note { font-size: .9rem; }
+@media (max-width: 560px) { .app { margin: 12px auto; } .panel { padding: 12px; } .inputs { gap: 4px; } .inputs input { font-size: .75rem; padding: 9px 2px; } .players button, .prizes span { font-size: .72rem; } canvas { height: 300px; } }
+
+/* D1 저장 기록 영역 */
+.help { color: #536681; text-align: center; }
+#apiStatus { min-height: 1.5em; text-align: center; color: #254575; }
+.table-wrap { overflow-x: auto; margin-top: 14px; }
+#recordsTable { width: 100%; border-collapse: collapse; min-width: 520px; }
+#recordsTable th, #recordsTable td { padding: 10px 8px; border-bottom: 1px solid #dce6f5; text-align: center; }
+#recordsTable th { background: #f0f5fd; }
+#recordsTable input { width: 100%; max-width: 130px; padding: 8px; border: 1px solid #c7d5ea; border-radius: 6px; }
+#recordsTable button { padding: 7px 10px; margin: 2px; font-size: .82rem; }
+#recordsTable .delete-button { background: #b83d4c; }
+
+/* 선택을 완료한 참가자의 경로 색상을 표시합니다. */
+.players button.completed { box-shadow: inset 0 -5px 0 var(--path-color); }
+.players button.active { outline: 3px solid var(--path-color); outline-offset: -3px; }
